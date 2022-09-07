@@ -8,7 +8,7 @@ function Navbar() {
         <a href="/profile">Profile</a>
       </div>
       <div className={s.item}>
-        <a href="/dialogs">Dialogs</a>
+        <a href="/dialogs">Dialogs1</a>
       </div>
       <div className={s.item}>
         <a href="/news">News</a>
