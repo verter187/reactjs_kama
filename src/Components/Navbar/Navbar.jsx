@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import s from "./Navbar.module.sass";
 
 function Navbar({ menuItems }) {
-  console.log(s.activeLink);
   return (
     <div className={s.navbar}>
       {menuItems.map((item) => {
