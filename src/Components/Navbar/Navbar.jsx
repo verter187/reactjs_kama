@@ -1,24 +1,20 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import s from "./Navbar.module.sass";
 
-function Navbar() {
+function Navbar({ menuItems }) {
   return (
     <div className={s.navbar}>
-      <div className={s.item}>
-        <a href="/profile">Profile</a>
-      </div>
-      <div className={s.item}>
-        <a href="/dialogs">Dialogs2</a>
-      </div>
-      <div className={s.item}>
-        <a href="/news">News</a>
-      </div>
-      <div className={s.item}>
-        <a href="/music">Music</a>
-      </div>
-      <div className={s.item}>
-        <a href="/settings">Settings</a>
-      </div>
+      {menuItems.map((item) => {
+        let name = Object.keys(item)[0];
+        return (
+          <div key={Math.random()} className={s.item}>
+            <NavLink to={`/${name}`}>
+              {name.charAt(0).toUpperCase() + name.slice(1)}
+            </NavLink>
+          </div>
+        );
+      })}
     </div>
   );
 }

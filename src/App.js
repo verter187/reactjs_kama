@@ -6,23 +6,37 @@ import Dialogs from "./Components/Dialogs";
 import News from "./Components/News";
 import Music from "./Components/Music";
 import Settings from "./Components/Settings";
-
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App(props) {
+  let menuItems = [
+    { profile: Profile },
+    { dialogs: Dialogs },
+    { news: News },
+    { music: Music },
+    { settings: Settings },
+  ];
+
   return (
     <BrowserRouter>
       <div className={s.app_wrapper}>
         <Header />
-        <Navbar />
+        <Navbar menuItems={menuItems} />
 
         <div className={s.content}>
           <Routes>
-            <Route path="/dialogs" element={<Dialogs />} exact />
-            <Route path="/profile" element={<Profile />} exact />
-            <Route path="/news" element={<News />} exact />
-            <Route path="/music" element={<Music />} exact />
-            <Route path="/settings" element={<Settings />} exact />
+            {menuItems.map((item) => {
+              let name = Object.keys(item)[0];
+              return (
+                <Route
+                  key={Math.random()}
+                  path={`/${name}`}
+                  element={React.createElement(item[name])}
+                  exact
+                />
+              );
+            })}
           </Routes>
         </div>
       </div>
