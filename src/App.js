@@ -26,8 +26,10 @@ function App(props) {
 
         <div className={s.content}>
           <Routes>
+            <Route path={`/Dialogs/*`} element={<Dialogs />} />
             {menuItems.map((item) => {
               let name = Object.keys(item)[0];
+
               return (
                 <Route
                   key={Math.random()}

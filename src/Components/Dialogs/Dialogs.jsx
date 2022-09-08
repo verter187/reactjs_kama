@@ -1,5 +1,9 @@
 import React from "react";
 import s from "./Dialogs.module.sass";
+
+import Dialog from "./Dialog/Dialog";
+import Message from "./Message/Message";
+
 function Dialogs(props) {
   const dialogs = ["Andrew", "Dmitry", "Sasha", "Sveta", "Valera", "Victor"];
   const messages = [
@@ -11,17 +15,13 @@ function Dialogs(props) {
   return (
     <div className={s.dialogsbox}>
       <div className={s.dialogs}>
-        {dialogs.map((dialog) => (
-          <div
-            className={s.dialog + " " + (dialog === "Sasha" ? s.active : "")}
-          >
-            {dialog}
-          </div>
+        {dialogs.map((dialog, i) => (
+          <Dialog key={Math.random()} name={dialog} index={i + 1} />
         ))}
       </div>
       <div className={s.messages}>
         {messages.map((message) => (
-          <div className={s.message}>{message}</div>
+          <Message key={Math.random()} name={message} />
         ))}
       </div>
     </div>
