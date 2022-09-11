@@ -26,7 +26,7 @@ function App(props) {
 
         <div className={s.content}>
           <Routes>
-            <Route path={`/Dialogs/*`} element={<Dialogs />} />
+            <Route path={"/Dialogs/:userId"} element={<Dialogs />} />
             {menuItems.map((item) => {
               let name = Object.keys(item)[0];
 
