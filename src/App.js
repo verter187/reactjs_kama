@@ -9,9 +9,9 @@ import Settings from "./Components/Settings";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-function App(props) {
+function App({ posts }) {
   let menuItems = [
-    { profile: Profile },
+    { profile: Profile, props: { posts: posts } },
     { dialogs: Dialogs },
     { news: News },
     { music: Music },
@@ -34,7 +34,10 @@ function App(props) {
                 <Route
                   key={Math.random()}
                   path={`/${name}`}
-                  element={React.createElement(item[name])}
+                  element={React.createElement(
+                    item[name],
+                    "props" in item ? item.props : null
+                  )}
                   exact
                 />
               );

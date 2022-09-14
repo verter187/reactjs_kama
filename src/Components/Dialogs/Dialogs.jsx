@@ -9,6 +9,7 @@ function Dialogs() {
   const dialogs = [
     {
       name: "Andrew",
+      id: "1",
       messages: [
         "Hi, i am Andrew",
         "Hi, how are you?",
@@ -18,6 +19,7 @@ function Dialogs() {
     },
     {
       name: "Dmitry",
+      id: "2",
       messages: [
         "Hi, i am Dmitry",
         "Hi, how are you?",
@@ -27,6 +29,7 @@ function Dialogs() {
     },
     {
       name: "Sasha",
+      id: "3",
       messages: [
         "Hi, i am Sasha",
         "Hi, how are you?",
@@ -36,6 +39,7 @@ function Dialogs() {
     },
     {
       name: "Sveta",
+      id: "4",
       messages: [
         "Hi, i am Sveta",
         "Hi, how are you?",
@@ -45,6 +49,7 @@ function Dialogs() {
     },
     {
       name: "Valera",
+      id: "5",
       messages: [
         "Hi, i am Valera",
         "Hi, how are you?",
@@ -54,6 +59,7 @@ function Dialogs() {
     },
     {
       name: "Victor",
+      id: "6",
       messages: [
         "Hi, i am Victor",
         "Hi, how are you?",
@@ -74,7 +80,7 @@ function Dialogs() {
     <div className={s.dialogsbox}>
       <div className={s.dialogs}>
         {dialogs.map((dialog, i) => (
-          <Dialog key={Math.random()} name={dialog.name} id={i + 1} />
+          <Dialog key={dialog.id} name={dialog.name} id={dialog.id} />
         ))}
       </div>
       <div className={s.messages}>
