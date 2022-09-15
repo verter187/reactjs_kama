@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./News.module.sass";
 
 const News = () => <div className={s.news}>News</div>;

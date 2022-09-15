@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./Post.module.sass";
 
 const Post = ({ message, likesCount }) => (

@@ -1,4 +1,3 @@
-import React from "react";
 import s from "./MyPosts.module.sass";
 import Post from "./Post/Post";
 
