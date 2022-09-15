@@ -9,7 +9,7 @@ import Settings from "./Components/Settings";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-function App({ posts, dialogs }) {
+const App = ({ posts, dialogs }) => {
   let menuItems = [
     { profile: Profile, props: { posts: posts } },
     { dialogs: Dialogs, props: { dialogs: dialogs } },
@@ -47,6 +47,6 @@ function App({ posts, dialogs }) {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

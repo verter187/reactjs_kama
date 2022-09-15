@@ -5,7 +5,7 @@ import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
 import { useParams } from "react-router-dom";
 
-function Dialogs({ dialogs }) {
+const Dialogs = ({ dialogs }) => {
   const params = useParams(),
     userId = parseInt(params.userId);
 
@@ -28,6 +28,6 @@ function Dialogs({ dialogs }) {
       </div>
     </div>
   );
-}
+};
 
 export default Dialogs;
