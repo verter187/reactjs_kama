@@ -11,11 +11,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = ({ posts, dialogs }) => {
   let menuItems = [
-    { profile: Profile, props: { posts: posts } },
-    { dialogs: Dialogs, props: { dialogs: dialogs } },
-    { news: News },
-    { music: Music },
-    { settings: Settings },
+    { profile: Profile, id: 1, props: { posts: posts } },
+    { dialogs: Dialogs, id: 2, props: { dialogs: dialogs } },
+    { news: News, id: 3 },
+    { music: Music, id: 4 },
+    { settings: Settings, id: 5 },
   ];
 
   return (
