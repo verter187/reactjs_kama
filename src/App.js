@@ -9,10 +9,10 @@ import Settings from "./Components/Settings";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-function App({ posts }) {
+function App({ posts, dialogs }) {
   let menuItems = [
     { profile: Profile, props: { posts: posts } },
-    { dialogs: Dialogs },
+    { dialogs: Dialogs, props: { dialogs: dialogs } },
     { news: News },
     { music: Music },
     { settings: Settings },
@@ -26,7 +26,10 @@ function App({ posts }) {
 
         <div className={s.content}>
           <Routes>
-            <Route path={"/Dialogs/:userId"} element={<Dialogs />} />
+            <Route
+              path={"/Dialogs/:userId"}
+              element={<Dialogs dialogs={dialogs} />}
+            />
             {menuItems.map((item) => {
               let name = Object.keys(item)[0];
 
@@ -34,10 +37,7 @@ function App({ posts }) {
                 <Route
                   key={Math.random()}
                   path={`/${name}`}
-                  element={React.createElement(
-                    item[name],
-                    "props" in item ? item.props : null
-                  )}
+                  element={React.createElement(item[name], item?.props)}
                   exact
                 />
               );
