@@ -2,10 +2,10 @@ import s from "./Profile.module.sass";
 import ProfileInfo from "./ProfileInfo";
 import MyPosts from "./MyPosts";
 
-const Profile = ({ posts }) => (
+const Profile = ({ state }) => (
   <div className={s.profile}>
     <ProfileInfo />
-    <MyPosts posts={posts} />
+    <MyPosts posts={state.posts} />
   </div>
 );
 

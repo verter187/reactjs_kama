@@ -4,25 +4,25 @@ import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
 import { useParams } from "react-router-dom";
 
-const Dialogs = ({ dialogs }) => {
+const Dialogs = ({ state }) => {
   const params = useParams(),
     userId = parseInt(params.userId);
 
   let messages = [];
   if (Number.isInteger(userId)) {
-    messages = dialogs[userId - 1].messages;
+    messages = state.dialogs[userId - 1].messages;
   }
 
   return (
     <div className={s.dialogsbox}>
       <div className={s.dialogs}>
-        {dialogs.map((dialog, i) => (
-          <Dialog key={dialog.id} name={dialog.name} id={dialog.id} />
+        {state.dialogs.map((dialog, i) => (
+          <Dialog key={dialog.id} {...dialog} />
         ))}
       </div>
       <div className={s.messages}>
         {messages.map((message) => (
-          <Message key={Math.random()} name={message} />
+          <Message key={`${userId}_${message.id}`} name={message.message} />
         ))}
       </div>
     </div>

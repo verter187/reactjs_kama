@@ -1,21 +1,21 @@
 import s from "./MyPosts.module.sass";
 import Post from "./Post/Post";
 
-const MyPosts = ({ posts }) => (
-  <div className={s.postsBlock}>
-    My posts
-    <div>
+const MyPosts = ({ posts }) => {
+  const postElements = posts.map((post, i) => <Post key={post.id} {...post} />);
+
+  return (
+    <div className={s.postsBlock}>
+      My posts
       <div>
-        <textarea></textarea>
+        <div>
+          <textarea></textarea>
+        </div>
+        <button>Add post</button>
       </div>
-      <button>Add post</button>
+      <div className={s.posts}>{postElements}</div>
     </div>
-    <div className={s.posts}>
-      {posts.map(({ id, message, likesCount }, i) => (
-        <Post key={id} message={message} likesCount={likesCount} />
-      ))}
-    </div>
-  </div>
-);
+  );
+};
 
 export default MyPosts;
