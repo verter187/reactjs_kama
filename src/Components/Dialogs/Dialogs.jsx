@@ -1,5 +1,5 @@
 import s from "./Dialogs.module.sass";
-
+import React, { useState } from "react";
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
 import { useParams } from "react-router-dom";
@@ -13,6 +13,20 @@ const Dialogs = ({ state }) => {
     messages = state.dialogs[userId - 1].messages;
   }
 
+  const [newMessages, setNewMessages] = useState(messages);
+  console.log(777, messages);
+  console.log(888, newMessages);
+  const newMessageElement = React.createRef();
+
+  const addMessage = () => {
+    const newMessage = {
+      id: Math.random(),
+      message: newMessageElement.current.value,
+    };
+    setNewMessages([...newMessages, newMessage]);
+    newMessageElement.current.value = "";
+  };
+
   return (
     <div className={s.dialogsbox}>
       <div className={s.dialogs}>
@@ -20,9 +34,15 @@ const Dialogs = ({ state }) => {
           <Dialog key={dialog.id} {...dialog} />
         ))}
       </div>
+
       <div className={s.messages}>
-        {messages.map((message) => (
-          <Message key={`${userId}_${message.id}`} name={message.message} />
+        <div>
+          <textarea ref={newMessageElement}></textarea>
+        </div>
+        <button onClick={addMessage}>Add message</button>
+
+        {newMessages.map((message) => (
+          <Message key={message.id} name={message.message} />
         ))}
       </div>
     </div>
